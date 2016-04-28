@@ -4,13 +4,20 @@ const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const rootDir    = path.resolve(__dirname ) .replace('config/webpack', '');
+const mainFile   = path.join(rootDir, 'src/client/main.js');
+const outputPath = path.join(rootDir, 'build');
+
+console.log('mainFile =>', mainFile);
+
 module.exports = {
   devtool: 'eval-source-map',
   entry: [
-    'webpack-hot-middleware/client?reload=true'
+    'webpack-hot-middleware/client?reload=true',
+    mainFile
   ],
   output: {
-    path: path.join(__dirname, '/dist/'),
+    path: outputPath,
     publicPath: '/',
     filename: '[name].js',
   },
@@ -18,14 +25,14 @@ module.exports = {
     new CopyWebpackPlugin([
       {
         from: {
-          glob: 'server/public/assets/**'
+          glob: 'src/server/public/assets'
         },
-        flatten: true
+        to: 'assets'
       }
     ]),
     new HtmlWebpackPlugin({
-      template: 'server/public/index.html',
-      inject: 'body',
+      template: 'src/server/public/index.html',
+      inject:   'body',
       filename: 'index.html'
     }),
     new webpack.optimize.OccurenceOrderPlugin(),
