@@ -8,25 +8,34 @@
 <body>
 	<div id="menu-container"></div>
 
-	<div id="page-start" class="page active">
-		<img class="placeholder" src="assets/images/start.jpg">
+	<div class="content">
+		<section id="user-list">
+			<ul id="users">
+				<li data-room="1">
+					<img src="assets/images/userlist-progress-skam.png" class="progress">
+					<h2>Mormor</h2>
+					<p>Skam<br>
+					Avsnitt 11:11</p>
+				</li>
+			</ul>
+		</section>
+
+		<div id="page-start" class="page active"></div>
+
+		<div id="page-video" class="page">
+			<div class="videoplayer" id="videoplayer">
+					<video style="max-width: 100%;"
+							poster="//www.svt.se/cachable_image/1424786253000/viva-hate/article2703025.svt/ALTERNATES/extralarge/vitavidder-jpg"
+							>
+					</video>
+				</div>
+
+			<div class="chat"></div>
+			<button class="chat-button"></button>
+		</div>
 	</div>
 
-	<div id="page-video" class="page">
-		<div class="videoplayer" id="videoplayer">
-				<video style="max-width: 100%;"
-						poster="//www.svt.se/cachable_image/1424786253000/viva-hate/article2703025.svt/ALTERNATES/extralarge/vitavidder-jpg"
-						>
-				</video>
-			</div>
 
-		<div class="chat"></div>
-		<button class="chat-button"></button>
-	</div>
-
-	<section id="user-list">
-		<ul id="users"></ul>
-	</section>
 
 	<script type="text/javascript" src="//www.svtstatic.se/video/svtvideoplayer/js/svtvideoplayer.js"></script>
 	<script src="http://localhost:4000/socket.io/socket.io.js"></script>
