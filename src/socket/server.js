@@ -46,7 +46,10 @@ io.on('connection', (socket) => {
   socket.on('write', (data) => {
     const message = data;
 
-    socket.to(connectedUsers[socket.id].room).emit('chat', message);
+    socket.to(connectedUsers[socket.id].room).emit('chat', {
+      from: connectedUsers[socket.id].username,
+      message: message
+    });
   });
 
   socket.on('disconnect', () => {

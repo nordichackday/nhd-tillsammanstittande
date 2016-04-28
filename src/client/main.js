@@ -24,7 +24,7 @@ socket.on('list', function (data) {
 });
 
 socket.on('chat', function (data) {
-	console.log(data);
+	showChatMessage(data);
 });
 
 $users.on('click', 'li', function () {
@@ -45,11 +45,13 @@ $('.user').click(function () {
 	socket.emit('username', name);
 });
 
-$('#page-video').click(function () {
+$('.chat-button').click(function () {
 	var message = prompt('Chat');
 
-	socket.emit('write', message);
-})
+	if (message) {
+		socket.emit('write', message);
+	}
+});
 
 function switchRoom(room) {
 	console.log('Trying to join room', room);
@@ -69,4 +71,17 @@ function changeView(view) {
 
 function toggleMenu() {
 	$('body').toggleClass('menu-open');
+}
+
+function showChatMessage(data) {
+
+	var bubble = $('<div class="chat-message"><b>' + data.from + ':</b><br>' + data.message + '</div>');
+
+	$('.chat').prepend(bubble);
+
+	setTimeout(function () {
+		bubble.fadeOut(function () {
+			bubble.remove();
+		});
+	}, 5000);
 }

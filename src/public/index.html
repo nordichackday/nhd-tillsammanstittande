@@ -12,6 +12,7 @@
 	}
 
 	.page {
+		position: relative;
 		display: none;
 	}
 
@@ -82,6 +83,31 @@
 
 		float: right;
 	}
+
+	button.chat-button {
+		background: transparent url(./assets/images/icon-chat.png) center center no-repeat;
+		background-size: contain;
+		width: 53px;
+		height: 53px;
+		border: 0;
+		position: fixed;
+		right: 3em;
+		bottom: 3em;
+	}
+
+	.chat {
+		position: absolute;
+		top: 2em;
+		right: 2em;
+	}
+
+	.chat-message {
+		background-color: blue;
+		color: white;
+		padding: 0.5em;
+		border-radius: 1em;
+		margin-bottom: 1em;
+	}
 </style>
 </head>
 <body>
@@ -101,6 +127,9 @@
 
 	<div id="page-video" class="page">
 		<img class="placeholder" src="assets/images/video.jpg">
+
+		<div class="chat"></div>
+		<button class="chat-button"></button>
 	</div>
 
 	<section id="user-list">
