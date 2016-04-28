@@ -1,0 +1,13 @@
+{
+  "name": "nhd-tillsammanstittande",
+  "version": "1.0.0",
+  "author": "Alexander Ekman <alexander.ekman@svt.se>",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.13.4",
+    "socket.io": "^1.4.5"
+  }
+}
