@@ -1,0 +1,14 @@
+{
+  "apps": [
+    {
+      "name"         : "socket",
+      "script"       : "src/socket",
+      "watch"        : ["src/socket"],
+      "merge_logs"   : true,
+      "error_file"   : "logs/socket-err.log",
+      "out_file"     : "logs/socket-out.log",
+      "ignore_watch" : ["node_modules", "build"],
+      "pid_file"     : ".socket.pid",
+    }
+  ]
+}
