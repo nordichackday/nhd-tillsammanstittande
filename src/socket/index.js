@@ -18,13 +18,13 @@ server.listen(SOCKET_PORT, () => {
 
 // Socket server
 io.on('connection', (socket) => {
-	console.log('User connected.');
-
 	connectedUsers[socket.id] = {
 		socket: socket,
 		username: null,
 		room: false
 	};
+
+	console.log('User connected. There are now ' + Object.keys(connectedUsers).length + ' users online.');
 
 	var userList = require('./component/user-list')(socket, connectedUsers);
 
@@ -41,6 +41,12 @@ io.on('connection', (socket) => {
 		connectedUsers[socket.id].room = room;
 
 		console.log(connectedUsers[socket.id].username + ' just joined ' + connectedUsers[socket.id].room + '.');
+	});
+
+	socket.on('write', (data) => {
+		var message = data;
+
+		socket.to(connectedUsers[socket.id].room).emit('chat', message);
 	});
 
 	socket.on('disconnect', () => {

@@ -7,17 +7,20 @@
 	body {
 		padding: 0;
 		margin: 0;
+		font-family: sans-serif;
+		-webkit-font-smoothing: antialiased;
+	}
+
+	.page {
+		display: none;
+	}
+
+	.page.active {
+		display: block;
 	}
 
 	.placeholder {
 		width: 100%;
-		position: relative;
-		left: 0%;
-		transition: left 0.5s;
-	}
-
-	.menu-open .placeholder {
-		left: -25%;
 	}
 
 	#user-list {
@@ -47,18 +50,58 @@
 	}
 
 	#menu {
-		background-color: #000;
+		background-color: #121116;
 		color: #ccc;
 		padding: 2em;
+		overflow: hidden;
+	}
+
+	.user {
+		display: none;
+		float: right;
+	}
+
+	.profile-image {
+		display: inline-block;
+		width: 32px;
+		margin-right: 0.5em;
+		vertical-align: middle;
+	}
+
+	.username {
+		line-height: 32px;
+		margin: 0;
+		font-weight: bold;
+	}
+
+	.friends {
+		display: inline-block;
+		height: 32px;
+		margin-left: 2em;
+		vertical-align: middle;
+
+		float: right;
 	}
 </style>
 </head>
 <body>
 	<div id="menu">
-		<div class="user">Alexander</div>
+		<img src="assets/images/icon-friends.png" class="friends">
+
+		<div class="user">
+			<img src="assets/images/profile-image.jpg" class="profile-image">
+
+			<span class="username">Alexander</span>
+		</div>
 	</div>
 
-	<img class="placeholder" src="assets/images/start.jpg">
+	<div id="page-start" class="page active">
+		<img class="placeholder" src="assets/images/start.jpg">
+	</div>
+
+	<div id="page-video" class="page">
+		<img class="placeholder" src="assets/images/video.jpg">
+	</div>
 
 	<section id="user-list">
 		<ul id="users"></ul>
