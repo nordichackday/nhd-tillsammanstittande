@@ -39,13 +39,19 @@ module.exports = {
     })
   ],
   module: {
-    loaders: [{
-      test: /\.js?$/,
-      exclude: /node_modules/,
-      loader: 'babel',
-      query: {
-        "presets": ["es2015", "stage-0"]
+    loaders: [
+      { test: /\.hbs$/, loader: "handlebars-loader" },
+      {
+        test: /\.js?$/,
+        exclude: /node_modules/,
+        loader: 'babel',
+        query: {
+          "presets": ["es2015", "stage-0"]
+        }
       }
-    }]
-  }
+    ]
+  },
+  node: {
+      fs: "empty" // avoids error messages
+  }  
 };
