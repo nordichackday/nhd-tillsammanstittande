@@ -1,9 +1,11 @@
-import menu from 'client/components/menu';
+import menuComponent        from 'client/components/menu';
+import videoPlayerComponent from 'client/components/video-player';
 
 const socket = io('http://localhost:4000');
 const $users = $('#users');
 
-menu(socket);
+const menu        = menuComponent(socket);
+const videoPlayer = videoPlayerComponent(socket);
 
 socket.on('list', function (data) {
 	console.log('User list: ', data);
@@ -71,9 +73,8 @@ function switchRoom(room) {
 	toggleMenu();
 
 	// setTimeout(function () {
-	// 	playVideo();
+	// 	videoPlayer.play();
 	// }, 1000);
-
 }
 
 function changeView(view) {
@@ -95,42 +96,4 @@ function showChatMessage(data) {
 			bubble.remove();
 		});
 	}, 5000);
-}
-
-function playVideo() {
-	var videoId = '1372168-001A';
-
-	console.log('trying to start video');
-
-	if (window.SVP) {
-		console.log('SVP found');
-
-		SVP.config({
-			useAltDashUrl: false,
-			useAltHlsUrl: false,
-			splash: false,
-			theme: 'standard'
-		});
-
-		var element = document.getElementById('videoplayer'),
-			videoElement = element.getElementsByTagName('video')[0];
-
-		videoElement.setAttribute('preload', 'auto'),
-		videoElement.setAttribute('autoplay', ''),
-		videoElement.setAttribute('data-video-reduced-bandwidth', 'true'),
-		videoElement.setAttribute('data-video-id', videoId);
-
-		var position = 600;
-		if (position) {
-			videoElement.setAttribute('data-video-startposition', position);
-		}
-
-		if (element.state && element.state()) {
-			console.log('Change video to ' + videoId);
-			element.load(videoId);
-		} else {
-			console.log('Init player with video ' + videoId);
-			window.SVP(element);
-		}
-	}
 }
