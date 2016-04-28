@@ -1,2 +1,7 @@
+*.log
 node_modules
+.npm
+/npm-debug*
 .DS_Store
+.child-*
+.npm
