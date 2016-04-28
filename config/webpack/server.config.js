@@ -8,8 +8,6 @@ const rootDir    = path.resolve(__dirname ) .replace('config/webpack', '');
 const mainFile   = path.join(rootDir, 'src/client/main.js');
 const outputPath = path.join(rootDir, 'build');
 
-console.log('mainFile =>', mainFile);
-
 module.exports = {
   devtool: 'eval-source-map',
   entry: [
@@ -24,12 +22,12 @@ module.exports = {
   plugins: [
     new CopyWebpackPlugin([
       {
-        from: 'src/server/public/assets',
+        from: 'src/public/assets',
         to:   'assets'
       }
     ]),
     new HtmlWebpackPlugin({
-      template: 'src/server/public/index.html',
+      template: 'src/public/index.html',
       inject:   'body',
       filename: 'index.html'
     }),

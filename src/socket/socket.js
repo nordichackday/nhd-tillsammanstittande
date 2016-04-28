@@ -1,30 +1,27 @@
-'use strict';
-
-var express = require('express');
-var http = require('http');
-var socketio = require('socket.io');
+const express  = require('express');
+const http     = require('http');
+const socketio = require('socket.io');
 
 // Variables
-var SOCKET_PORT = 4000;
+const SOCKET_PORT = 4000;
 
-var app = express();
-var server = http.createServer(app);
-var io = socketio(server);
+const app = express();
+const server = http.createServer(app);
+const io = socketio(server);
 
 
 // Launch socket server.
-server.listen(SOCKET_PORT, function () {
+server.listen(SOCKET_PORT, () => {
 	console.log('Socket server listening on localhost:' + SOCKET_PORT + '.');
 });
 
-
 // Socket server
-io.on('connection', function (socket) {
+io.on('connection', (socket) => {
 	console.log('User connected.');
 
 	var userList = require('./component/user-list')(socket);
 
-	socket.on('disconnect', function () {
+	socket.on('disconnect', () => {
 		console.log('User disconnected.');
 	});
 });
