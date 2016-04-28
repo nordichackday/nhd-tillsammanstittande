@@ -62,6 +62,8 @@ function switchRoom(room) {
 
 	changeView('video');
 	toggleMenu();
+
+	playVideo();
 }
 
 function changeView(view) {
@@ -84,4 +86,55 @@ function showChatMessage(data) {
 			bubble.remove();
 		});
 	}, 5000);
+}
+
+function playVideo() {
+	var videoId = '1372168-001A';
+
+	console.log('trying to start video');
+
+	if (window.SVP) {
+		console.log('SVP found');
+		// var splashEnabled = document.getElementById('splashEnabled').checked,
+		// 	leftAligned = document.getElementById('leftSplash').checked;
+
+		SVP.config({
+			useAltDashUrl: false,
+			useAltHlsUrl: false,
+			splash: false,
+			theme: 'standard'
+		});
+
+		var element = document.getElementById('videoplayer'),
+			videoElement = element.getElementsByTagName('video')[0],
+			videoElement.setAttribute('preload', 'auto'),
+			videoElement.setAttribute('autoplay', ''),
+			videoElement.setAttribute('data-video-reduced-bandwidth', 'true'),
+			videoElement.setAttribute('data-video-controls', '')
+			videoElement.setAttribute('data-video-id', videoId);
+
+		// if(poster) {
+		// 	videoElement.setAttribute('poster', poster);
+		// }
+
+		// var videoLength = document.getElementById('lengthInput').value;
+		// if (videoLength !== undefined) {
+		// 	videoElement.setAttribute('data-video-length', videoLength);
+		// }
+
+		// var position = 100;
+		// if (position) {
+		// 	videoElement.setAttribute('data-video-startposition', position);
+		// }
+
+
+
+		if (element.state && element.state()) {
+			console.log('Change video to ' + videoId);
+			element.load(videoId);
+		} else {
+			console.log('Init player with video ' + videoId);
+			window.SVP(element);
+		}
+	}
 }
