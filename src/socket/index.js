@@ -18,7 +18,7 @@ server.listen(SOCKET_PORT, () => {
 // Socket server
 io.on('connection', (socket) => {
 	console.log('User connected.');
-
+console.log('test');
 	var userList = require('./component/user-list')(socket);
 
 	socket.on('disconnect', () => {
