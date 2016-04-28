@@ -24,10 +24,8 @@ module.exports = {
   plugins: [
     new CopyWebpackPlugin([
       {
-        from: {
-          glob: 'src/server/public/assets'
-        },
-        to: 'assets'
+        from: 'src/server/public/assets',
+        to:   'assets'
       }
     ]),
     new HtmlWebpackPlugin({
