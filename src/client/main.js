@@ -13,7 +13,7 @@ socket.on('connect', function () {
 
 socket.on('list', function (data) {
 	console.log('User list: ', data);
-
+/*
 	$users.empty();
 
 	$(data.users).each(function (index) {
@@ -21,6 +21,7 @@ socket.on('list', function (data) {
 			$users.append('<li data-room="' + this.room + '"><b>' + this.name + '</b><br>Tittar på: ' + this.watching.title + '</li>');
 		}
 	});
+*/
 });
 
 socket.on('chat', function (data) {
@@ -33,7 +34,9 @@ $users.on('click', 'li', function () {
 	switchRoom(room);
 });
 
-$('.friends').click(function () {
+$('.friends-button').click(function (event) {
+	event.preventDefault();
+
 	toggleMenu();
 });
 
@@ -76,7 +79,6 @@ function toggleMenu() {
 }
 
 function showChatMessage(data) {
-
 	var bubble = $('<div class="chat-message"><b>' + data.from + ':</b><br>' + data.message + '</div>');
 
 	$('.chat').prepend(bubble);
@@ -95,8 +97,6 @@ function playVideo() {
 
 	if (window.SVP) {
 		console.log('SVP found');
-		// var splashEnabled = document.getElementById('splashEnabled').checked,
-		// 	leftAligned = document.getElementById('leftSplash').checked;
 
 		SVP.config({
 			useAltDashUrl: false,
