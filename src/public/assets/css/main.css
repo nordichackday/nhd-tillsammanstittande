@@ -79,7 +79,7 @@ body {
 }
 
 button.chat-button {
-  background: transparent url(./assets/images/icon-chat.png) center center no-repeat;
+  background: transparent url(/assets/images/icon-chat.png) center center no-repeat;
   background-size: contain;
   width: 53px;
   height: 53px;
