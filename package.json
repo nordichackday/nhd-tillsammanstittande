@@ -2,9 +2,9 @@
   "name": "nhd-tillsammanstittande",
   "version": "1.0.0",
   "author": "Alexander Ekman <alexander.ekman@svt.se>",
-  "main": "server.js",
+  "main": "main.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node main.js"
   },
   "dependencies": {
     "express": "^4.13.4",
