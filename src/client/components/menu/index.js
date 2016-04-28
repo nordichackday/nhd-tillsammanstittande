@@ -2,8 +2,9 @@ import Chance   from 'chance';
 import $        from 'jquery';
 import template from 'client/components/menu/template.hbs'
 
-const chance = new Chance();
-const user = {};
+const chance  = new Chance();
+const user    = {};
+
 user.name = chance.name();
 
 export default function(socket) {
