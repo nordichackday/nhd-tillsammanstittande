@@ -38,11 +38,25 @@ $('.friends-button').click(function (event) {
 	toggleMenu();
 });
 
-$('.chat-button').click(function () {
-	var message = prompt('Chat');
+$('.chat-button').click(function (event) {
+	event.preventDefault();
+	// var message = prompt('Chat');
+	$('.chat-input').toggleClass('visible').focus();
 
-	if (message) {
-		socket.emit('write', message);
+
+});
+
+$('.chat-input').keydown(function (event) {
+	console.log(event);
+
+	if (event.keyCode === 13) {
+		var message = $(this).val();
+
+		if (message) {
+			socket.emit('write', message);
+		}
+
+		$(this).val('');
 	}
 });
 
@@ -56,9 +70,9 @@ function switchRoom(room) {
 	changeView('video');
 	toggleMenu();
 
-	setTimeout(function () {
-		playVideo();
-	}, 1000);
+	// setTimeout(function () {
+	// 	playVideo();
+	// }, 1000);
 
 }
 
@@ -74,7 +88,7 @@ function toggleMenu() {
 function showChatMessage(data) {
 	var bubble = $('<div class="chat-message"><b>' + data.from + ':</b><br>' + data.message + '</div>');
 
-	$('.chat').prepend(bubble);
+	$('.chat-messages').prepend(bubble);
 
 	setTimeout(function () {
 		bubble.fadeOut(function () {
