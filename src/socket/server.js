@@ -1,6 +1,7 @@
 import express  from 'express';
 import http     from 'http';
 import socketio from 'socket.io';
+import userList from 'socket/component/user-list';
 
 // Variables
 const SOCKET_PORT = 4000;
@@ -26,7 +27,7 @@ io.on('connection', (socket) => {
 
   console.log('User connected. There are now ' + Object.keys(connectedUsers).length + ' users online.');
 
-  const userList = require('./component/user-list')(socket, connectedUsers);
+  userList(socket, connectedUsers);
 
   socket.on('username', (data) => {
     connectedUsers[socket.id].username = data;
