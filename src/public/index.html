@@ -1,7 +1,43 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title>NRK TV</title>
+<style>
+	body {
+		padding: 0;
+		margin: 0;
+	}
 
-<a href="video/skavlan.html"><img src="assets/images/skavlan.jpg" /></a>
-<ul id="users"></ul>
+	.placeholder {
+		width: 100%;
+		position: relative;
+		left: 0%;
+		transition: left 0.5s;
+	}
 
-<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
-<script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
+	.menu-open .placeholder {
+		left: -25%;
+	}
 
+	#users {
+		position: absolute;
+		top: 0;
+		right: 25%;
+		width: 25%;
+		height: 100%;
+		transition: right 0.5s;
+	}
+
+	.menu-open #users {
+		right: 0;
+	}
+</style>
+</head>
+<body>
+	<img class="placeholder" src="assets/images/start.jpg">
+	<ul id="users"></ul>
+
+	<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+	<script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
+</body>
+</html>
