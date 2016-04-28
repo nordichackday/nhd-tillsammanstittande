@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "author": "Alexander Ekman <alexander.ekman@svt.se>",
   "scripts": {
-    "start:server": "node src/server",
-    "start:socket": "node src/socket"
+    "start":        "PM2_HOME=.pm2 ./node_modules/.bin/pm2 start --no-daemon config/pm2/all.json",
+    "start:server": "PM2_HOME=.pm2 ./node_modules/.bin/pm2 start --no-daemon config/pm2/server.json",
+    "start:socket": "PM2_HOME=.pm2 ./node_modules/.bin/pm2 start --no-daemon config/pm2/socket.json"
   },
   "dependencies": {
     "babel-eslint": "^6.0.4",
@@ -17,6 +18,7 @@
     "file-loader": "^0.8.5",
     "html-webpack-plugin": "^2.16.0",
     "path": "^0.12.7",
+    "pm2": "^1.1.3",
     "socket.io": "^1.4.5",
     "webpack": "^1.13.0",
     "webpack-dev-middleware": "^1.6.1",

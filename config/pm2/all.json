@@ -1,0 +1,16 @@
+{
+  "apps": [
+    {
+      "name"         : "server",
+      "script"       : "src/server",
+      "watch"        : ["src/server"],
+      "merge_logs"   : true
+    },
+    {
+      "name"         : "socket",
+      "script"       : "src/socket",
+      "watch"        : ["src/socket"],
+      "merge_logs"   : true
+    }
+  ]
+}
