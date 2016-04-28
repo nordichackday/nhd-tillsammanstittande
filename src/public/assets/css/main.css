@@ -88,6 +88,12 @@ body {
 #users > li {
   padding: 30px 20px;
   overflow: hidden;
+  border-bottom: 1px solid #8e8f91;
+  cursor: pointer;
+}
+
+#users > li:hover {
+  background-color: rgba(255, 255, 255, 0.05);
 }
 
 #users > li > h2 {
@@ -151,7 +157,7 @@ body {
 }
 
 button.chat-button {
-  background: transparent url(./assets/images/icon-chat.png) center center no-repeat;
+  background: transparent url(/assets/images/icon-chat.png) center center no-repeat;
   background-size: contain;
   width: 53px;
   height: 53px;
@@ -159,12 +165,14 @@ button.chat-button {
   position: fixed;
   right: 3em;
   bottom: 3em;
+  z-index: 75;
 }
 
 .chat {
   position: absolute;
   top: 2em;
   right: 2em;
+  z-index: 75;
 }
 
 .chat-message {

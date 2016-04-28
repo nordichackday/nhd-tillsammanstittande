@@ -28,6 +28,10 @@ $users.on('click', 'li', function () {
 	switchRoom(room);
 });
 
+$('.imagelogo').click(function () {
+	changeView('start');
+});
+
 $('.friends-button').click(function (event) {
 	event.preventDefault();
 
@@ -52,7 +56,10 @@ function switchRoom(room) {
 	changeView('video');
 	toggleMenu();
 
-	playVideo();
+	setTimeout(function () {
+		playVideo();
+	}, 1000);
+
 }
 
 function changeView(view) {
@@ -97,17 +104,7 @@ function playVideo() {
 		videoElement.setAttribute('preload', 'auto'),
 		videoElement.setAttribute('autoplay', ''),
 		videoElement.setAttribute('data-video-reduced-bandwidth', 'true'),
-		videoElement.setAttribute('data-video-controls', '')
 		videoElement.setAttribute('data-video-id', videoId);
-
-		// if(poster) {
-		// 	videoElement.setAttribute('poster', poster);
-		// }
-
-		// var videoLength = document.getElementById('lengthInput').value;
-		// if (videoLength !== undefined) {
-		// 	videoElement.setAttribute('data-video-length', videoLength);
-		// }
 
 		var position = 600;
 		if (position) {
