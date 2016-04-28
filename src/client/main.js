@@ -106,12 +106,13 @@ function playVideo() {
 		});
 
 		var element = document.getElementById('videoplayer'),
-			videoElement = element.getElementsByTagName('video')[0],
-			videoElement.setAttribute('preload', 'auto'),
-			videoElement.setAttribute('autoplay', ''),
-			videoElement.setAttribute('data-video-reduced-bandwidth', 'true'),
-			videoElement.setAttribute('data-video-controls', '')
-			videoElement.setAttribute('data-video-id', videoId);
+			videoElement = element.getElementsByTagName('video')[0];
+
+		videoElement.setAttribute('preload', 'auto'),
+		videoElement.setAttribute('autoplay', ''),
+		videoElement.setAttribute('data-video-reduced-bandwidth', 'true'),
+		videoElement.setAttribute('data-video-controls', '')
+		videoElement.setAttribute('data-video-id', videoId);
 
 		// if(poster) {
 		// 	videoElement.setAttribute('poster', poster);
@@ -122,12 +123,10 @@ function playVideo() {
 		// 	videoElement.setAttribute('data-video-length', videoLength);
 		// }
 
-		// var position = 100;
-		// if (position) {
-		// 	videoElement.setAttribute('data-video-startposition', position);
-		// }
-
-
+		var position = 600;
+		if (position) {
+			videoElement.setAttribute('data-video-startposition', position);
+		}
 
 		if (element.state && element.state()) {
 			console.log('Change video to ' + videoId);
