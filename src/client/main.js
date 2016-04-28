@@ -1,15 +1,9 @@
-var user = 'Klara';
+import menu from 'client/components/menu';
 
-var socket = io('http://localhost:4000');
+const socket = io('http://localhost:4000');
+const $users = $('#users');
 
-var $users = $('#users');
-
-socket.on('connect', function () {
-	$('.username').text(user);
-	$('.user').show();
-
-	socket.emit('username', user)
-});
+menu(socket);
 
 socket.on('list', function (data) {
 	console.log('User list: ', data);
@@ -38,14 +32,6 @@ $('.friends-button').click(function (event) {
 	event.preventDefault();
 
 	toggleMenu();
-});
-
-$('.user').click(function () {
-	var name = prompt('What’s your name?');
-
-	$('.username').text(name);
-
-	socket.emit('username', name);
 });
 
 $('.chat-button').click(function () {
