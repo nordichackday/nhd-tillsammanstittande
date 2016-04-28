@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "author": "Alexander Ekman <alexander.ekman@svt.se>",
   "scripts": {
-    "start:server": "node src/server"
+    "start:server": "node src/server",
+    "start:socket": "node src/socket"
   },
   "dependencies": {
     "babel-eslint": "^6.0.4",
