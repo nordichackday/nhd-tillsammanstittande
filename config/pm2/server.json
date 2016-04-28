@@ -4,11 +4,7 @@
       "name"         : "server",
       "script"       : "src/server",
       "watch"        : ["src/server"],
-      "merge_logs"   : true,
-      "error_file"   : "logs/server-err.log",
-      "out_file"     : "logs/server-out.log",
-      "ignore_watch" : ["node_modules", "build"],
-      "pid_file"     : ".server.pid",
+      "merge_logs"   : true
     }
   ]
 }

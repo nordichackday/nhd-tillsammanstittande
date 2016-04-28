@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "author": "Alexander Ekman <alexander.ekman@svt.se>",
   "scripts": {
-    "start":        "./node_modules/.bin/pm2 start --no-daemon config/pm2/all.json",
-    "start:server": "./node_modules/.bin/pm2 start --no-daemon config/pm2/server.json",
-    "start:socket": "./node_modules/.bin/pm2 start --no-daemon config/pm2/socket.json"
+    "start":        "PM2_HOME=.pm2 ./node_modules/.bin/pm2 start --no-daemon config/pm2/all.json",
+    "start:server": "PM2_HOME=.pm2 ./node_modules/.bin/pm2 start --no-daemon config/pm2/server.json",
+    "start:socket": "PM2_HOME=.pm2 ./node_modules/.bin/pm2 start --no-daemon config/pm2/socket.json"
   },
   "dependencies": {
     "babel-eslint": "^6.0.4",

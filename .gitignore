@@ -3,8 +3,6 @@ node_modules
 .npm
 /npm-debug*
 .DS_Store
-.child-*
 .npm
 build
-logs
-.*.pid
+.pm2
