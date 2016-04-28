@@ -1,3 +1,4 @@
+<!doctype html>
 <html>
 <head>
 <meta charset="utf-8">
@@ -19,23 +20,49 @@
 		left: -25%;
 	}
 
-	#users {
+	#user-list {
 		position: absolute;
 		top: 0;
-		right: 25%;
+		right: -25%;
 		width: 25%;
 		height: 100%;
 		transition: right 0.5s;
 	}
 
-	.menu-open #users {
+	.menu-open #user-list {
 		right: 0;
+	}
+
+	#users {
+		position: relative;
+		height: 100%;
+		margin: 0;
+		padding: 0;
+		background-color: #ddd;
+		list-style-type: none;
+	}
+
+	#users > li {
+		padding: 1em;
+	}
+
+	#menu {
+		background-color: #000;
+		color: #ccc;
+		padding: 2em;
 	}
 </style>
 </head>
 <body>
+	<div id="menu">
+		<div class="user">Alexander</div>
+	</div>
+
 	<img class="placeholder" src="assets/images/start.jpg">
-	<ul id="users"></ul>
+
+	<section id="user-list">
+		<ul id="users"></ul>
+	</section>
 
 	<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
 	<script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>

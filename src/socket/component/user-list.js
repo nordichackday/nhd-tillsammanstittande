@@ -8,10 +8,17 @@ module.exports = function (socket) {
 		users: [
 			{
 				name: 'Mormor',
+				online: true,
 				watching: {
 					title: 'Skavlan'
 				},
 				room: 1
+			},
+			{
+				name: 'Mamma',
+				online: false,
+				watching: null,
+				room: 2
 			}
 		]
 	});
