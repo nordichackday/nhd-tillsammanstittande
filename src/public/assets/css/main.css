@@ -1,0 +1,104 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page {
+  position: relative;
+  display: none;
+}
+
+.page.active {
+  display: block;
+}
+
+.placeholder {
+  width: 100%;
+}
+
+#user-list {
+  position: absolute;
+  top: 0;
+  right: -25%;
+  width: 25%;
+  height: 100%;
+  transition: right 0.5s;
+}
+
+.menu-open #user-list {
+  right: 0;
+}
+
+#users {
+  position: relative;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #ddd;
+  list-style-type: none;
+}
+
+#users > li {
+  padding: 1em;
+}
+
+#menu {
+  background-color: #121116;
+  color: #ccc;
+  padding: 2em;
+  overflow: hidden;
+}
+
+.user {
+  display: none;
+  float: right;
+}
+
+.profile-image {
+  display: inline-block;
+  width: 32px;
+  margin-right: 0.5em;
+  vertical-align: middle;
+}
+
+.username {
+  line-height: 32px;
+  margin: 0;
+  font-weight: bold;
+}
+
+.friends {
+  display: inline-block;
+  height: 32px;
+  margin-left: 2em;
+  vertical-align: middle;
+
+  float: right;
+}
+
+button.chat-button {
+  background: transparent url(./assets/images/icon-chat.png) center center no-repeat;
+  background-size: contain;
+  width: 53px;
+  height: 53px;
+  border: 0;
+  position: fixed;
+  right: 3em;
+  bottom: 3em;
+}
+
+.chat {
+  position: absolute;
+  top: 2em;
+  right: 2em;
+}
+
+.chat-message {
+  background-color: blue;
+  color: white;
+  padding: 0.5em;
+  border-radius: 1em;
+  margin-bottom: 1em;
+}
