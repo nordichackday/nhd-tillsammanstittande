@@ -2,12 +2,12 @@
   "name": "nhd-tillsammanstittande",
   "version": "1.0.0",
   "author": "Alexander Ekman <alexander.ekman@svt.se>",
-  "main": "main.js",
   "scripts": {
-    "start": "node main.js"
+    "start:server": "node server"
   },
   "dependencies": {
     "express": "^4.13.4",
+    "path": "^0.12.7",
     "socket.io": "^1.4.5"
   }
 }

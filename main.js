@@ -1,2 +1,1 @@
-var webserver = require('./server/web/web');
-var socketserver = require('./server/socket/socket');
+var server = require('./server/server');
