@@ -21,7 +21,12 @@
 	</div>
 
 	<div id="page-video" class="page">
-		<img class="placeholder" src="assets/images/video.jpg">
+		<div class="videoplayer" id="videoplayer">
+				<video style="max-width: 100%;"
+						poster="//www.svt.se/cachable_image/1424786253000/viva-hate/article2703025.svt/ALTERNATES/extralarge/vitavidder-jpg"
+						>
+				</video>
+			</div>
 
 		<div class="chat"></div>
 		<button class="chat-button"></button>
@@ -31,6 +36,7 @@
 		<ul id="users"></ul>
 	</section>
 
+	<script type="text/javascript" src="//www.svtstatic.se/video/svtvideoplayer/js/svtvideoplayer.js"></script>
 	<script src="http://localhost:4000/socket.io/socket.io.js"></script>
 	<script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
 </body>
