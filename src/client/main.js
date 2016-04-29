@@ -63,6 +63,7 @@ function switchRoom(room) {
 
 	setTimeout(function () {
 		videoPlayer.play();
+		socket.emit('mock');
 		shouldHideControllers = true;
 
 		hideVideoControllers();
