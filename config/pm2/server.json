@@ -3,7 +3,8 @@
     {
       "name"         : "server",
       "script"       : "src/server",
-      "watch"        : ["src/server", "config/webpack"],
+      "watch"        : false,
+      "restart"      : false,
       "merge_logs"   : true
     }
   ]
