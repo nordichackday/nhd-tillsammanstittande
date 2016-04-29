@@ -2,6 +2,44 @@
 
 cozy campfire smoothness
 
+## Node and NPM
+
+We use Node v5.11.0 to run and build this application please make sure you have it installed eventually use [nvm](https://github.com/creationix/nvm) to install e.g.:
+
+```
+> nvm install 5.11.0
+> nvm use
+```
+
+Install all the modules:
+
+```
+> npm install
+```
+
+Run the app
+
+```
+> npm run start
+```
+
+## PM2
+
+We use pm2 to startup our app locally.
+A handy alias to use list, restart, stop and/or restart the app is the following:
+
+```
+> alias pm2="PM2_HOME=.pm2 ./node_modules/.bin/pm2"
+```
+
+Then we can use the pm2 shortcut e.g.:
+
+```
+> pm2 list | start | restart | stop | kill | help
+```
+
+For more information on pm2 see [here](http://pm2.keymetrics.io/).
+
 ## Heroku settings
 
 We have two apps on Heroku one is the *server* and the other is the *socket server*.
