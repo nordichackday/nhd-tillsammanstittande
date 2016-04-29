@@ -92,9 +92,17 @@ io.on('connection', (socket) => {
       event: 'chat',
       payload: {
         from: 'Mormor',
-        message: 'Denna gubben är för rolig!'
+        message: 'Inte så mycket, intervjun har precis börjat.'
       },
-      delay: 10000
+      delay: 15000
+    },
+    {
+      event: 'chat',
+      payload: {
+        from: 'Mormor',
+        message: 'HAHAHA'
+      },
+      delay: 6500
     },
     {
       event: 'emoji',
@@ -102,15 +110,54 @@ io.on('connection', (socket) => {
         from: 'Mormor',
         message: '😄'
       },
-      delay: 2500
+      delay: 1000
+    },
+    {
+      event: 'emoji',
+      payload: {
+        from: 'Mormor',
+        message: '😄'
+      },
+      delay: 400
+    },
+    {
+      event: 'emoji',
+      payload: {
+        from: 'Mormor',
+        message: '😄'
+      },
+      delay: 430
     },
     {
       event: 'chat',
       payload: {
         from: 'Mormor',
-        message: 'Inte så mycket, intervjun har precis börjat.'
+        message: 'Anklever!'
       },
-      delay: 15000
+      delay: 5000
+    },
+    {
+      event: 'user-join',
+      payload: {
+        user: 'Lillebror',
+      },
+      delay: 2000
+    },
+    {
+      event: 'emoji',
+      payload: {
+        from: 'Lillebror',
+        message: '💩'
+      },
+      delay: 4000
+    },
+    {
+      event: 'emoji',
+      payload: {
+        from: 'Lillebror',
+        message: '💩'
+      },
+      delay: 300
     }
   ];
 
