@@ -1,10 +1,15 @@
+import chatComponent        from 'client/components/chat';
 import menuComponent        from 'client/components/menu';
 import videoPlayerComponent from 'client/components/video-player';
+
+import $ from 'jquery';
 
 const socket = io('http://localhost:4000');
 const $users = $('#users');
 
-const menu        = menuComponent(socket);
+const chat = chatComponent(socket);
+const menu = menuComponent(socket);
+
 const videoPlayer = videoPlayerComponent(socket);
 
 socket.on('list', function (data) {
@@ -18,18 +23,6 @@ socket.on('list', function (data) {
 		}
 	});
 */
-});
-
-socket.on('chat', function (data) {
-	showChatMessage(data);
-});
-
-socket.on('user-join', function (data) {
-	showGeneralMessage(data.user + ' kom in.');
-});
-
-socket.on('user-leave', function (data) {
-	showGeneralMessage(data.user + ' lämnade.');
 });
 
 $users.on('click', 'li', function () {
@@ -46,28 +39,6 @@ $('.friends-button').click(function (event) {
 	event.preventDefault();
 
 	toggleMenu();
-});
-
-$('.chat-button').click(function (event) {
-	event.preventDefault();
-	// var message = prompt('Chat');
-	$('.chat-input').toggleClass('visible').focus();
-
-
-});
-
-$('.chat-input').keydown(function (event) {
-	console.log(event);
-
-	if (event.keyCode === 13) {
-		var message = $(this).val();
-
-		if (message) {
-			socket.emit('write', message);
-		}
-
-		$(this).val('');
-	}
 });
 
 function switchRoom(room) {
@@ -92,28 +63,4 @@ function changeView(view) {
 
 function toggleMenu() {
 	$('body').toggleClass('menu-open');
-}
-
-function showChatMessage(data) {
-	var bubble = $('<div class="chat-message"><b>' + data.from + ':</b><br>' + data.message + '</div>');
-
-	$('.chat-messages').prepend(bubble);
-
-	setTimeout(function () {
-		bubble.fadeOut(function () {
-			bubble.remove();
-		});
-	}, 5000);
-}
-
-function showGeneralMessage(message) {
-	var bubble = $('<div class="general-message">' + message + '</div>');
-
-	$('.chat-messages').prepend(bubble);
-
-	setTimeout(function () {
-		bubble.fadeOut(function () {
-			bubble.remove();
-		});
-	}, 5000);
 }
