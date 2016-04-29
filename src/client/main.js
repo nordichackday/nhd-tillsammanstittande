@@ -2,6 +2,8 @@ import chatComponent        from 'client/components/chat';
 import menuComponent        from 'client/components/menu';
 import videoPlayerComponent from 'client/components/video-player';
 
+import $ from 'jquery';
+
 const socket = io('http://localhost:4000');
 const $users = $('#users');
 
