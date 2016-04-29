@@ -77,56 +77,56 @@ io.on('connection', (socket) => {
 
     delete connectedUsers[socket.id];
   });
+
+
+  var mockMessages = [
+    {
+      event: 'chat',
+      payload: {
+        from: 'Mormor',
+        message: 'Hej, vännen!'
+      },
+      delay: 6000
+    },
+    {
+      event: 'chat',
+      payload: {
+        from: 'Mormor',
+        message: 'Denna gubben är för rolig!'
+      },
+      delay: 10000
+    },
+    {
+      event: 'emoji',
+      payload: {
+        from: 'Mormor',
+        message: '😄'
+      },
+      delay: 2500
+    },
+    {
+      event: 'chat',
+      payload: {
+        from: 'Mormor',
+        message: 'Inte så mycket, intervjun har precis börjat.'
+      },
+      delay: 15000
+    }
+  ];
+
+  function pickNextMock() {
+    var current = mockMessages.shift();
+
+    setTimeout(() => {
+      sendMock(current);
+    }, current.delay);
+  };
+
+  function sendMock(current) {
+    socket.emit(current.event, current.payload);
+
+    if (mockMessages.length > 0) {
+      pickNextMock();
+    }
+  };
 });
-
-
-var mockMessages = [
-  {
-    event: 'chat',
-    payload: {
-      from: 'Mormor',
-      message: 'Hej, vännen!'
-    },
-    delay: 6000
-  },
-  {
-    event: 'chat',
-    payload: {
-      from: 'Mormor',
-      message: 'Denna gubben är för rolig!'
-    },
-    delay: 5000
-  },
-  {
-    event: 'emoji',
-    payload: {
-      from: 'Mormor',
-      message: '😄'
-    },
-    delay: 2500
-  },
-  {
-    event: 'chat',
-    payload: {
-      from: 'Mormor',
-      message: 'Inte så mycket, intervjun har precis börjat.'
-    },
-    delay: 20000
-  }
-];
-
-const sendMock = (current) => {
-  io.sockets.emit(current.event, current.payload);
-
-  if (mockMessages.length > 0) {
-    pickNextMock();
-  }
-};
-
-const pickNextMock = () => {
-  var current = mockMessages.shift();
-
-  setTimeout(() => {
-    sendMock(current);
-  }, current.delay);
-};

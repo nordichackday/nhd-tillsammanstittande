@@ -241,12 +241,17 @@ button.chat-button {
   z-index: 76;
 }
 
+.chat-messages .emoji {
+  float: right;
+}
+
 .emoji-message {
   /*background-color: rgba(21, 117, 207, 0.9);
   color: white;
   padding: 0.5em 1em;
   border-radius: 1em;
   margin-bottom: 1em;*/
+  overflow: hidden;
 }
 
 .emoji {
