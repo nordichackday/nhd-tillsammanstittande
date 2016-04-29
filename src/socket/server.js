@@ -4,7 +4,7 @@ import socketio from 'socket.io';
 import userList from 'socket/component/user-list';
 
 // Variables
-const SOCKET_PORT = 4000;
+const SOCKET_PORT = process.env.PORT || 3000;
 
 const app = express();
 const server = http.createServer(app);
