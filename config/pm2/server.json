@@ -3,8 +3,7 @@
     {
       "name"         : "server",
       "script"       : "src/server",
-      "watch"        : false,
-      "restart"      : false,
+      "watch"        : ["src/server"],
       "merge_logs"   : true
     }
   ]
