@@ -6,7 +6,7 @@ import $ from 'jquery';
 import _ from 'lodash';
 
 // TODO this url should be injected via a ENV variable e.g. PROCESS.ENV.SOCKET_URL
-const url      = `http://${window.location.hostname}:4000`;
+const url      = "nhd-tillsammanstittnade-socket.herokuapp.com";
 const socket   = io(url);
 const $users   = $('#users');
 
