@@ -4,6 +4,7 @@ import videoPlayerComponent from 'client/components/video-player';
 
 import $ from 'jquery';
 import _ from 'lodash';
+import io from 'socket.io-client';
 
 const hostname = window.location.hostname;
 const socket   = io(`http://${hostname}:4000`);
