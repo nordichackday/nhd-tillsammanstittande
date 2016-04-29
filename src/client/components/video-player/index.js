@@ -1,5 +1,5 @@
 import $        from 'jquery';
-import template from 'client/components/video-player/template.hbs'
+import template from 'template.hbs'
 
 const VIDEO_ID     = '1372168-001A';
 const VIDEO_CONFIG = {
