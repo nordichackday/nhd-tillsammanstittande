@@ -22,6 +22,11 @@ module.exports = {
   plugins: [
     new CopyWebpackPlugin([
       {
+        from: 'src/public/favicon.ico'
+      }
+    ]),
+    new CopyWebpackPlugin([
+      {
         from: 'src/public/assets',
         to:   'assets'
       }
@@ -53,5 +58,5 @@ module.exports = {
   },
   node: {
       fs: "empty" // avoids error messages
-  }  
+  }
 };
