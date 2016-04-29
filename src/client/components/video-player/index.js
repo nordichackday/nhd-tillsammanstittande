@@ -57,7 +57,7 @@ const play = () => {
   window.SVP(element);
 }
 
-export default function(socket) {
+export default function (socket) {
   initialize();
   return { play };
 };

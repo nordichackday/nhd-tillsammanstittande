@@ -7,7 +7,7 @@ const user    = {};
 
 user.name = chance.name();
 
-export default function(socket) {
+export default function (socket) {
 
   // set menu content
   const content = template({user});
