@@ -38,6 +38,8 @@ const bindDomEvents = (socket) => {
 
       if (message) {
         socket.emit('write', message);
+
+        $input.val('');
       }
     }
   };
@@ -58,12 +60,12 @@ const bindSocketEvents = (socket) => {
   const addMessage = (template, data) => {
 
     const content = template(data);
-    $('.chat-messages').prepend(content);
+    var element = $(content).appendTo('.chat-messages');//.append(content);
 
-    const element = $('.chat-messages .message').get(0);
+    // const element = $('.chat-messages .message').get(0);
     setTimeout(() => {
-      $(element).fadeOut(() => {
-        $(element).remove();
+      element.fadeOut(() => {
+        element.remove();
       });
     }, 5000);
   };
