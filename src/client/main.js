@@ -3,6 +3,7 @@ import menuComponent        from 'client/components/menu';
 import videoPlayerComponent from 'client/components/video-player';
 
 import $ from 'jquery';
+import _ from 'lodash';
 
 const socket = io('http://localhost:4000');
 const $users = $('#users');
@@ -11,6 +12,13 @@ const chat = chatComponent(socket);
 const menu = menuComponent(socket);
 
 const videoPlayer = videoPlayerComponent(socket);
+
+var shouldHideControllers = false;
+var hideVideoControllers = _.debounce(function () {
+	if (shouldHideControllers) {
+		$('body').addClass('hide-ui');
+	}
+}, 2000);
 
 socket.on('list', function (data) {
 	console.log('User list: ', data);
@@ -52,9 +60,26 @@ function switchRoom(room) {
 	toggleMenu();
 
 	setTimeout(function () {
-	 	videoPlayer.play();
+		videoPlayer.play();
+		shouldHideControllers = true;
+
+		hideVideoControllers();
 	}, 2000);
 }
+
+$('body').on('mousemove', function () {
+	$('body').removeClass('hide-ui');
+
+	hideVideoControllers();
+});
+
+$('.chat').on('mouseover', function () {
+	shouldHideControllers = false;
+}).on('mouseout', function () {
+	shouldHideControllers = true;
+
+	hideVideoControllers();
+});
 
 function changeView(view) {
 	$('.page.active').removeClass('active');
