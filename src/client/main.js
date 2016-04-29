@@ -42,7 +42,8 @@ $users.on('click', 'li', () => {
 });
 
 $('.imagelogo').click(() => {
-	changeView('start');
+	// changeView('start');
+	socket.emit('mock');
 });
 
 $('.friends-button').click((event) => {
@@ -63,7 +64,6 @@ function switchRoom(room) {
 
 	setTimeout(() => {
 		videoPlayer.play();
-		socket.emit('mock');
 		shouldHideControllers = true;
 
 		hideVideoControllers();
