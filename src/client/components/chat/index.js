@@ -74,10 +74,6 @@ const addMessage = (template, data) => {
 
 
 const bindSocketEvents = (socket) => {
-
-
-
-
   socket.on('chat', (data) => {
     addMessage(templates.chatMessage, data);
   });

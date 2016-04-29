@@ -257,7 +257,7 @@ button.chat-button {
 
 .chat-message {
   background-color: rgba(21, 117, 207, 0.9);
-  color: #bbb;
+  color: white;
   padding: 0.5em 1em;
   border-radius: 1em;
   margin-bottom: 1em;
@@ -265,7 +265,7 @@ button.chat-button {
 
 .me-message {
   background-color: rgba(220, 220, 220, 0.9);
-  color: #8e8f91;
+  color: #333;
   padding: 0.5em 1em;
   border-radius: 1em;
   margin-bottom: 1em;
