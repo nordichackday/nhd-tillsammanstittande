@@ -39,6 +39,8 @@ const bindDomEvents = (socket) => {
       if (message) {
         socket.emit('write', message);
       }
+
+      $input.val('');
     }
   };
 
