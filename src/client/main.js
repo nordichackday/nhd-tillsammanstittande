@@ -4,10 +4,10 @@ import videoPlayerComponent from 'client/components/video-player';
 
 import $ from 'jquery';
 import _ from 'lodash';
-import io from 'socket.io-client';
 
-const hostname = window.location.hostname;
-const socket   = io(`http://${hostname}:4000`);
+// TODO this url should be injected via a ENV variable e.g. PROCESS.ENV.SOCKET_URL
+const url      = `http://${window.location.hostname}:4000`;
+const socket   = io(url);
 const $users   = $('#users');
 
 const chat = chatComponent(socket);
@@ -63,6 +63,7 @@ function switchRoom(room) {
 
 	setTimeout(() => {
 		videoPlayer.play();
+		socket.emit('mock');
 		shouldHideControllers = true;
 
 		hideVideoControllers();
