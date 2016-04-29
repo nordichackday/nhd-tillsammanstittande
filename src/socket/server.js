@@ -42,6 +42,10 @@ io.on('connection', (socket) => {
     connectedUsers[socket.id].room = room;
 
     console.log(connectedUsers[socket.id].username + ' just joined ' + connectedUsers[socket.id].room + '.');
+
+    socket.to(connectedUsers[socket.id].room).emit('user-join', {
+      user: connectedUsers[socket.id].username
+    });
   });
 
   socket.on('write', (data) => {
@@ -55,6 +59,12 @@ io.on('connection', (socket) => {
 
   socket.on('disconnect', () => {
     console.log('User disconnected.');
+
+    if (connectedUsers[socket.id].room) {
+      socket.to(connectedUsers[socket.id].room).emit('user-leave', {
+        user: connectedUsers[socket.id].username
+      });
+    }
 
     delete connectedUsers[socket.id];
   });
