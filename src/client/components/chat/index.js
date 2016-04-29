@@ -41,6 +41,8 @@ const bindDomEvents = (socket) => {
 
         $input.val('');
       }
+
+      $input.val('');
     }
   };
 
