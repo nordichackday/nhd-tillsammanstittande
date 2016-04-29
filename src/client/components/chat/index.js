@@ -52,7 +52,13 @@ const bindDomEvents = (socket) => {
   };
 
   const onEmojiClick = (event) => {
-    socket.emit('emoji', $(event.currentTarget).html());
+    var emoji = $(event.currentTarget).html();
+
+    socket.emit('emoji', emoji);
+    addMessage(templates.emojiMessage, {
+      from: 'Jag',
+      message: emoji
+    });
   };
 
   $button.click(onChatButtonClick);
