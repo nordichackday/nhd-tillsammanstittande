@@ -15,14 +15,14 @@ const menu = menuComponent(socket);
 
 const videoPlayer = videoPlayerComponent(socket);
 
-var shouldHideControllers = false;
-var hideVideoControllers = _.debounce(function () {
+let shouldHideControllers = false;
+const hideVideoControllers = _.debounce(() => {
 	if (shouldHideControllers) {
 		$('body').addClass('hide-ui');
 	}
 }, 2000);
 
-socket.on('list', function (data) {
+socket.on('list', (data) => {
 	console.log('User list: ', data);
 /*
 	$users.empty();
@@ -35,17 +35,17 @@ socket.on('list', function (data) {
 */
 });
 
-$users.on('click', 'li', function () {
-	var room = $(this).data('room');
+$users.on('click', 'li', () => {
+	const room = $(this).data('room');
 
 	switchRoom(room);
 });
 
-$('.imagelogo').click(function () {
+$('.imagelogo').click(() => {
 	changeView('start');
 });
 
-$('.friends-button').click(function (event) {
+$('.friends-button').click((event) => {
 	event.preventDefault();
 
 	toggleMenu();
@@ -61,7 +61,7 @@ function switchRoom(room) {
 	changeView('video');
 	toggleMenu();
 
-	setTimeout(function () {
+	setTimeout(() => {
 		videoPlayer.play();
 		shouldHideControllers = true;
 
@@ -69,13 +69,13 @@ function switchRoom(room) {
 	}, 2000);
 }
 
-$('body').on('mousemove', function () {
+$('body').on('mousemove', () => {
 	$('body').removeClass('hide-ui');
 
 	hideVideoControllers();
 });
 
-$('.chat').on('mouseover', function () {
+$('.chat').on('mouseover', () => {
 	shouldHideControllers = false;
 }).on('mouseout', function () {
 	shouldHideControllers = true;
