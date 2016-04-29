@@ -247,7 +247,6 @@ button.chat-button {
   padding: 0.5em 1em;
   border-radius: 1em;
   margin-bottom: 1em;*/
-
 }
 
 .emoji {
@@ -258,7 +257,15 @@ button.chat-button {
 
 .chat-message {
   background-color: rgba(21, 117, 207, 0.9);
-  color: white;
+  color: #bbb;
+  padding: 0.5em 1em;
+  border-radius: 1em;
+  margin-bottom: 1em;
+}
+
+.me-message {
+  background-color: rgba(220, 220, 220, 0.9);
+  color: #8e8f91;
   padding: 0.5em 1em;
   border-radius: 1em;
   margin-bottom: 1em;

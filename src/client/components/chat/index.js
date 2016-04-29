@@ -1,12 +1,14 @@
 import $    from 'jquery';
 
 import content        from './template.hbs';
+import meMessage    from './me-message.hbs';
 import chatMessage    from './chat-message.hbs';
 import generalMessage from './general-message.hbs';
 import emojiMessage   from './emoji-message.hbs';
 
 const templates = {
   content,
+  meMessage,
   chatMessage,
   generalMessage,
   emojiMessage
@@ -27,7 +29,7 @@ const bindDomEvents = (socket) => {
 
   const onChatButtonClick = (event) => {
   	event.preventDefault();
-  	// var message = prompt('Chat');
+
   	$input.toggleClass('visible').focus();
   }
 
@@ -39,15 +41,17 @@ const bindDomEvents = (socket) => {
       if (message) {
         socket.emit('write', message);
 
+        addMessage(templates.meMessage, {
+          from: 'Jag',
+          message: message
+        });
+
         $input.val('');
       }
-
-      $input.val('');
     }
   };
 
   const onEmojiClick = (event) => {
-    console.log($(event.currentTarget).html());
     socket.emit('emoji', $(event.currentTarget).html());
   };
 
@@ -56,21 +60,22 @@ const bindDomEvents = (socket) => {
   $emoji.click(onEmojiClick);
 };
 
+const addMessage = (template, data) => {
+  const content = template(data);
+
+  var element = $(content).appendTo('.chat-messages');
+
+  setTimeout(() => {
+    element.fadeOut(() => {
+      element.remove();
+    });
+  }, 5000);
+};
+
 
 const bindSocketEvents = (socket) => {
 
-  const addMessage = (template, data) => {
 
-    const content = template(data);
-    var element = $(content).appendTo('.chat-messages');//.append(content);
-
-    // const element = $('.chat-messages .message').get(0);
-    setTimeout(() => {
-      element.fadeOut(() => {
-        element.remove();
-      });
-    }, 5000);
-  };
 
 
   socket.on('chat', (data) => {
