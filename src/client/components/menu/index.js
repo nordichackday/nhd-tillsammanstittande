@@ -1,6 +1,6 @@
 import Chance   from 'chance';
 import $        from 'jquery';
-import template from 'template.hbs'
+import template from './template.hbs'
 
 const chance  = new Chance();
 const user    = {};

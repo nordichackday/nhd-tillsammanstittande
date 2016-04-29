@@ -1,8 +1,8 @@
 import $    from 'jquery';
 
-import content        from 'template.hbs';
-import chatMessage    from 'chat-message.hbs';
-import generalMessage from 'general-message.hbs';
+import content        from './template.hbs';
+import chatMessage    from './chat-message.hbs';
+import generalMessage from './general-message.hbs';
 
 const templates = {
   content,
