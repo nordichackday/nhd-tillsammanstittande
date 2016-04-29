@@ -3,7 +3,8 @@
     {
       "name"         : "socket",
       "script"       : "src/socket",
-      "watch"        : ["src/socket"],
+      "autorestart"  : false,
+      "watch"        : false,
       "merge_logs"   : true
     }
   ]
