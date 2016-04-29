@@ -251,7 +251,9 @@ button.chat-button {
 }
 
 .emoji {
-  font-size: 60px;
+  font-size: 50px;
+  margin-right: 5px;
+  cursor: pointer;
 }
 
 .chat-message {
@@ -299,4 +301,16 @@ button.chat-button {
 
 .chat-emojis .emoji {
   float: left;
+}
+
+.chat-emojis .emoji:hover {
+  transform: scale(1.1, 1.1);
+}
+
+.chat-button {
+  cursor: pointer;
+}
+
+.chat-button:hover {
+  transform: scale(1.1, 1.1);
 }

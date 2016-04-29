@@ -1,7 +1,7 @@
 import $        from 'jquery';
 import template from 'client/components/video-player/template.hbs'
 
-const VIDEO_ID     = '1372168-001A';
+const VIDEO_ID     = '6448341'; //'1372168-001A';
 const VIDEO_CONFIG = {
   useAltDashUrl: false,
   useAltHlsUrl: false,
@@ -42,7 +42,7 @@ const play = () => {
   //   videoElement.setAttribute('data-video-length', videoLength);
   // }
 
-  const position = 600;
+  const position = 10;
   if (position) {
     videoElement.setAttribute('data-video-startposition', position);
   }
