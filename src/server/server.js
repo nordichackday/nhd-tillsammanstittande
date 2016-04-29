@@ -1,8 +1,8 @@
 /* eslint no-console: 0 */
 import express from 'express';
 
-import webpackMiddleware from 'server/middleware/webpack';
-import distMiddleware    from 'server/middleware/dist';
+import webpackMiddleware from 'server/middleware/webpack.js';
+import distMiddleware    from 'server/middleware/dist.js';
 
 const isDeveloping = process.env.NODE_ENV !== 'production';
 const port = isDeveloping ? 3000 : process.env.PORT;
